@@ -772,38 +772,47 @@
 
         /* [PERUBAHAN] Desain kartu ucapan yang lebih elegan */
         .wish-card {
-            background-color: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.9); /* Background lebih solid agar teks terbaca jelas */
             padding: 20px;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
             position: relative;
             margin-bottom: 1rem;
-            padding-top: 40px; /* Ruang untuk ikon kutipan */
             transition: transform 0.4s ease, box-shadow 0.4s ease;
             text-align: left;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
         .wish-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 35px rgba(0,0,0,0.08), 0 0 20px -5px rgba(142, 33, 56, 0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(142, 33, 56, 0.15);
         }
+        .wish-header {
+            display: flex; align-items: center; gap: 12px;
+        }
+        .wish-avatar {
+            width: 42px; height: 42px;
+            background: linear-gradient(135deg, var(--pink), var(--dark-pink));
+            color: white; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            font-weight: 700; font-size: 1.2rem;
+            box-shadow: 0 3px 8px rgba(142, 33, 56, 0.3);
+            flex-shrink: 0;
+        }
+        .wish-info { flex-grow: 1; }
+        .wish-date { font-size: 0.75rem; color: var(--text-light); margin-top: 2px; }
+        
         .wish-card .sender-name { 
-            font-weight: 700;
-            color: var(--dark-pink);
-            margin-bottom: 5px;
-            display: block; 
+            font-weight: 700; color: var(--dark-pink); font-size: 1rem; margin: 0; line-height: 1.2;
         }
         .wish-card .message-text { 
-            font-style: italic; color: var(--text-light); margin: 0; line-height: 1.6;
-        }
-        .wish-card::before {
-            content: '“';
-            position: absolute;
-            top: 10px;
-            left: 20px;
-            font-family: var(--font-serif);
-            font-size: 3.5rem;
-            color: rgba(142, 33, 56, 0.15);
+            font-size: 0.95rem; color: var(--text-dark); line-height: 1.6;
+            background: rgba(240, 240, 240, 0.5); /* Background tipis untuk pesan */
+            padding: 12px; border-radius: 0 12px 12px 12px; /* Sudut unik seperti bubble chat */
+            border-left: 3px solid var(--pink);
+            position: relative;
         }
 
         /* [BARU] Menghilangkan background pada section penutup */
@@ -2548,12 +2557,25 @@
                         badgeHtml = `<span class="attendance-badge ${badgeClass}"><i class="fa-solid ${iconClass}"></i> ${status}</span>`;
                     }
 
-                    card.innerHTML = ` 
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
-                            <span class="sender-name" style="margin-bottom: 0;">${wish.nama || 'Tamu'}</span>
+                    // [BARU] Logika Avatar & Tanggal
+                    const name = wish.nama || 'Tamu';
+                    const initial = name.charAt(0).toUpperCase();
+                    let dateStr = '';
+                    if (wish.timestamp) {
+                        const date = new Date(wish.timestamp);
+                        dateStr = date.toLocaleDateString('id-ID', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
+                    }
+
+                    card.innerHTML = `
+                        <div class="wish-header">
+                            <div class="wish-avatar">${initial}</div>
+                            <div class="wish-info">
+                                <div class="sender-name">${name}</div>
+                                <div class="wish-date">${dateStr}</div>
+                            </div>
                             ${badgeHtml}
                         </div>
-                        <p class="message-text">${wish.ucapan || ''}</p>
+                        <div class="message-text">"${wish.ucapan || ''}"</div>
                     `;
 
                     wishesGallery.appendChild(card);
