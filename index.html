@@ -11,7 +11,7 @@
     
     <!-- === META TAGS FOR SOCIAL MEDIA SHARING (WhatsApp, Facebook, etc.) === -->
     <meta property="og:title" content="Undangan Ulang Tahun: Sweet Seventeen Feby Widiari">
-    <meta property="og:description" content="Hadirilah perayaan hari spesial Feby Widiari pada hari Senin, 23 Februari 2026 pukul 16:00 WITA di Jl. Raya Besakih No.296.">
+    <meta property="og:description" content="Hadirilah perayaan hari spesial Feby Widiari pada hari Senin, 23 Februari 2030 pukul 16:00 WITA di Jl. Raya Besakih No.296.">
     <meta property="og:image" content="https://github.com/wayanku/undangan-ulang-tahun-oktavianti/blob/main/Desain%20tanpa%20judul%20(3)%20(1).webp?raw=true" id="meta-og-image">
     <!-- GANTI URL DI BAWAH INI DENGAN LINK LIVE UNDANGAN ANDA (SUDAH SESUAI) -->
     <meta property="og:url" content="https://wayanku.github.io/undangan-ulang-tahun-oktavianti/">
@@ -318,13 +318,13 @@
             border: 1px solid rgba(255, 255, 255, 0.8);
             padding: 15px;
             border-radius: 10px;
-            min-width: 90px;
+            min-width: 80px; /* [DIUBAH] Lebar minimum disesuaikan agar lebih fleksibel */
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s;
             perspective: 1000px; /* Diperlukan untuk animasi 3D */ 
         }
         .countdown div:hover { transform: translateY(-5px) scale(1.02); }
-        .countdown span { display: block; font-size: 2.5rem; font-weight: 700; color: var(--dark-pink); /* [DIUBAH] Warna teks disesuaikan */ }
+        .countdown span { display: block; font-size: clamp(1.8rem, 5vw, 2.5rem); font-weight: 700; color: var(--dark-pink); /* [DIUBAH] Ukuran font responsif dengan clamp */ }
         .countdown p { font-size: 0.8rem; text-transform: uppercase; color: var(--text-dark); font-weight: 500; opacity: 0.8; letter-spacing: 1px; }
         .hero .guest-name-main { font-family: var(--font-serif); font-size: clamp(2.5rem, 9vw, 3.2rem); font-weight: 700; margin-top: 15px; }
         
@@ -577,9 +577,9 @@
                 font-size: 0.9rem;
             }
             /* Ukuran font yang lebih kecil untuk mobile sudah diatur oleh clamp() */
-            .countdown span { font-size: 2rem; }
+            .countdown span { font-size: 1.5rem; } /* [DIUBAH] Font diperkecil agar angka 4 digit (ribuan hari) muat */
             .countdown div {
-                min-width: 70px; padding: 12px;
+                min-width: 55px; padding: 8px 2px; /* [DIUBAH] Padding dan lebar minimum dikurangi agar pas di layar kecil */
             }
             .countdown p { font-size: 0.7rem; letter-spacing: 0.5px; } /* [DIUBAH] Mengecilkan font di mobile */
             .countdown { gap: 10px; }
@@ -1638,7 +1638,7 @@
                 <!-- [BARU] Wrapper untuk info tambahan di dalam kartu -->
                 <div class="card-info">
                     <h4>UNDANGAN ULANG TAHUN</h4>
-                    <p>Senin, 23 Februari 2026</p>
+                    <p>Senin, 23 Februari 2030</p>
                     <!-- [DIPINDAHKAN] Kotak nama tamu statis (tidak terpakai) -->
                     <!-- [PERUBAHAN] Kotak nama tamu digabung agar lebih rapi -->
                     <div class="recipient-box">
@@ -1713,7 +1713,7 @@
                             <div class="date-section">
                                 <span class="date-number" id="event-date-num">23</span>
                                 <div class="date-text" id="event-date-text">
-                                    <strong>Senin</strong><br>Februari<br>2026
+                                    <strong>Senin</strong><br>Februari<br>2030
                                 </div>
                             </div>
                             <hr>
@@ -1776,11 +1776,11 @@
                                 <div class="card-chip"><div class="chip-line"></div><div class="chip-line"></div><div class="chip-line"></div><div class="chip-line"></div><div class="chip-main"></div></div>
                             </div>
                             <div style="text-align: center; color: rgba(255, 255, 255, 0.8); font-size: 0.9rem;">Klik untuk melihat nomor rekening</div>
-                            <div class="digital-gift-footer"><div class="card-holder">NI KOMANG ARTINI</div></div>
+                        <div class="digital-gift-footer"><div class="card-holder">Wayan Nuel</div></div>
                         </div>
                         <div class="digital-gift-face digital-gift-back">
                             <div class="magnetic-strip"></div>
-                            <div class="back-content"><div class="card-number" id="account-number">024101045244502</div><div class="card-holder">a.n. NI KOMANG ARTINI</div><button class="copy-button-digital" id="copy-button"><span>Salin</span></button></div>
+                        <div class="back-content"><div class="card-number" id="account-number">1234567</div><div class="card-holder">a.n. Wayan Nuel</div><button class="copy-button-digital" id="copy-button"><span>Salin</span></button></div>
                         </div>
                     </div>
                 </div>
@@ -1988,17 +1988,17 @@
             },
             event: {
                 day: "Senin",
-                date: "23 Februari 2026",
+                date: "23 Februari 2030",
                 time: "16:00 WITA - Selesai",
                 location: "Jl. Raya Besakih No.296",
                 mapUrl: "https://maps.app.goo.gl/ezBEC3G1ytdW7KHz6?g_st=ic",
                 dresscode: "Hitam & Putih",
-                countdownTime: "2026-02-23T16:00:00"
+                countdownTime: "2030-02-23T16:00:00"
             },
             gift: {
                 bankName: "BRI",
-                accountHolder: "NI KOMANG ARTINI",
-                accountNumber: "024101045244502",
+                accountHolder: "Wayan Nuel",
+                accountNumber: "1234567",
                 bankLogoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/BRI_2020.svg/2560px-BRI_2020.svg.png"
             },
             images: {
