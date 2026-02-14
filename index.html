@@ -612,12 +612,13 @@
         .rsvp-wishes-container {
             background-color: rgba(255, 255, 255, 0.6); /* Warna dasar kaca */
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(20px);
             padding: 30px;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05), 0 0 20px -5px rgba(142, 33, 56, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.4);
             text-align: left; 
+            margin: 0 20px; /* [DIUBAH] Memberi jarak kiri-kanan agar tidak mepet layar */
         }
  
         .rsvp-form { text-align: left; }
@@ -747,6 +748,11 @@
             gap: 1rem; /* [DIUBAH] Menyesuaikan jarak */
             /* [DIHAPUS] Properti yang tidak diperlukan lagi untuk layout baru */
         }
+        /* [BARU] Memberi jarak pada container galeri ucapan agar tidak mepet layar */
+        #wishes-gallery-container {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
         /* Scrollbar kustom untuk galeri ucapan */
         .wishes-gallery::-webkit-scrollbar { width: 6px; }
         .wishes-gallery::-webkit-scrollbar-track { background: rgba(0,0,0,0.05); border-radius: 10px; }
@@ -805,7 +811,7 @@
         .wish-date { font-size: 0.75rem; color: var(--text-light); margin-top: 2px; }
         
         .wish-card .sender-name { 
-            font-weight: 700; color: var(--dark-pink); font-size: 1rem; margin: 0; line-height: 1.2;
+            font-weight: 700; color: var(--dark-pink); font-size: 0.9rem; margin: 0; line-height: 1.2; /* [DIUBAH] Ukuran font nama diperkecil */
         }
         .wish-card .message-text { 
             font-size: 0.95rem; color: var(--text-dark); line-height: 1.6;
